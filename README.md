@@ -1,5 +1,5 @@
-#PHP SDK for HTTP Firebase Cloud Messaging Protocol
-##Usage example
+# PHP SDK for HTTP Firebase Cloud Messaging Protocol
+## Usage example
 ```php
 <?php
 
