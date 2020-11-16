@@ -1,0 +1,19 @@
+{
+    "name": "kuvardin/firebase-http-api-fcm",
+    "description": "PHP SDK for HTTP Firebase Cloud Messaging Protocol",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Maxim Kuvardin",
+            "email": "maxim@kuvard.in"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kuvardin\\FirebaseHttpApiFcm\\": "src"
+        }
+    }
+}
