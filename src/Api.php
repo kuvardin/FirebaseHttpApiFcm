@@ -138,23 +138,15 @@ class Api
     public function request(array $data)
     {
         $uri = 'https://fcm.googleapis.com/fcm/send';
-        try {
-            $this->last_response = $this->client->post($uri, [
-                RequestOptions::CONNECT_TIMEOUT => $this->connect_timeout,
-                RequestOptions::TIMEOUT => $this->request_timeout,
-                RequestOptions::HEADERS => [
-                    'Content-Type' => 'application/json',
-                    'Authorization' => "key={$this->server_key}",
-                ],
-                RequestOptions::JSON => $data,
-            ]);
-        } catch (ClientException $exception) {
-            echo $exception->getCode();
-            print_r($exception->getResponse()->getHeaders());
-
-            throw $exception;
-            exit;
-        }
+        $this->last_response = $this->client->post($uri, [
+            RequestOptions::CONNECT_TIMEOUT => $this->connect_timeout,
+            RequestOptions::TIMEOUT => $this->request_timeout,
+            RequestOptions::HEADERS => [
+                'Content-Type' => 'application/json',
+                'Authorization' => "key={$this->server_key}",
+            ],
+            RequestOptions::JSON => $data,
+        ]);
 
         $response_contents = $this->last_response->getBody()->getContents();
         return json_decode($response_contents, true, 512, JSON_THROW_ON_ERROR);
